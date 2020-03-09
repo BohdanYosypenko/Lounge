@@ -1,0 +1,49 @@
+﻿@model IEnumerable<LoungeMVC.Models.Tobacco>
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="row mt-5 mb-2">
+    
+
+        @{ 
+            foreach (var tobacco in Model) {
+
+            <div class="col lg-4">
+                <img width="200" class="img-thumbnail" src="@tobacco.Image" alt="@tobacco.Name"/>
+                 <h2>@tobacco.Name</h2>
+                <p>@tobacco.Description</p>
+                <p><a class="btn btn-warning">Детальніше</a></p>
+                </div>
+            }
+        }
+
+</div>
+<form method="post" action="~/Home/Index">
+    <p>
+        <label>Ім'я</label><br />
+        <input type="text" name="name" />
+    </p>
+    <p>
+        <label>Зображення</label><br />
+        <input type="text" name="image" />
+    </p>
+    <p>
+        <label>Смак</label><br />
+        <input type="text" name="taste" />
+    </p>
+    <p>
+        <label>Вага</label><br />
+        <input type="number" name="weight" />
+    </p>
+    <p>
+        <label>Опис товару</label><br />
+        <input type="text" name="description" />
+    </p>
+    <p>
+        <input type="submit" value="Отправить" class="btn-danger" />
+        <a href="Index">
+            <Button>Back</Button>
+        </a>
+    </p>
+</form>
