@@ -26,65 +26,65 @@ namespace LoungeApi.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Tobacco>>> Get()
+        public async Task<IEnumerable<Tobacco>> Get()
         {
             return await db.Tobaccos.ToListAsync();
         }
 
         // GET api/users/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<Tobacco>> Get(int id)
+        public async Task<Tobacco> Get(int id)
         {
-            Tobacco user = await db.Tobaccos.FirstOrDefaultAsync(x => x.Id == id);
-            if (user == null)
-                return NotFound();
-            return new ObjectResult(user);
+            Tobacco tobacco = await db.Tobaccos.FirstOrDefaultAsync(x => x.Id == id);
+            if (tobacco == null)
+                return null;
+            return tobacco;
         }
 
         // POST api/users
         [HttpPost]
-        public async Task<ActionResult<Tobacco>> Post(Tobacco user)
+        public async Task<Tobacco> Post(Tobacco tobacco)
         {
-            if (user == null)
+            if (tobacco == null)
             {
-                return BadRequest();
+                return null;
             }
 
-            db.Tobaccos.Add(user);
+            db.Tobaccos.Add(tobacco);
             await db.SaveChangesAsync();
-            return Ok(user);
+            return tobacco;
         }
 
         // PUT api/users/
         [HttpPut]
-        public async Task<ActionResult<Tobacco>> Put(Tobacco user)
+        public async Task<Tobacco> Put(Tobacco tobacco)
         {
-            if (user == null)
+            if (tobacco == null)
             {
-                return BadRequest();
+                return null;
             }
-            if (!db.Tobaccos.Any(x => x.Id == user.Id))
+            if (!db.Tobaccos.Any(x => x.Id == tobacco.Id))
             {
-                return NotFound();
+                return null  ;
             }
 
-            db.Update(user);
+            db.Update(tobacco);
             await db.SaveChangesAsync();
-            return Ok(user);
+            return tobacco;
         }
 
         // DELETE api/users/5
         [HttpDelete("{id}")]
-        public async Task<ActionResult<Tobacco>> Delete(int id)
+        public async Task<Tobacco> Delete(int id)
         {
-            Tobacco user = db.Tobaccos.FirstOrDefault(x => x.Id == id);
-            if (user == null)
+            Tobacco tobacco = db.Tobaccos.FirstOrDefault(x => x.Id == id);
+            if (tobacco == null)
             {
-                return NotFound();
+                return null;
             }
-            db.Tobaccos.Remove(user);
+            db.Tobaccos.Remove(tobacco);
             await db.SaveChangesAsync();
-            return Ok(user);
+            return tobacco;
         }
     }
 

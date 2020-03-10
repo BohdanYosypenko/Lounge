@@ -1,0 +1,36 @@
+﻿@model LoungeMVC.Models.Tobacco
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+<form method="post" action="~/Home/Edit">
+   
+                <input type="hidden" value="@Model.Id" name="id">
+        <p>
+            <label>Ім'я</label><br />
+            <input type="text" value="@Model.Name" name="name" />
+        </p>
+        <p>
+            <label>Зображення</label><br />
+            <input type="text" value="@Model.Image" name="image" />
+        </p>
+        <p>
+            <label>Смак</label><br />
+            <input type="text" value="@Model.Taste" name="taste" />
+        </p>
+        <p>
+            <label>Вага</label><br />
+            <input type="number" value="@Model.Weight" name="weight" />
+        </p>
+        <p>
+            <label>Опис товару</label><br />
+            <input type="text" value="@Model.Description" name="description" />
+        </p>
+        <p>
+            <input type="submit" value="Отправить" class="btn-danger" />
+            <a href="Index">
+                <Button>Back</Button>
+            </a>
+        </p>
+    </form>

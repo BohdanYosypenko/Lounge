@@ -16,6 +16,8 @@ namespace LoungeMVC
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
+            string hostConnection = Configuration["ConnectionStrings:HostConnection"];
+            
         }
 
         public IConfiguration Configuration { get; }
@@ -32,6 +34,7 @@ namespace LoungeMVC
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
+
             }
             else
             {

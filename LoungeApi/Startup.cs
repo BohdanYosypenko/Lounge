@@ -20,6 +20,7 @@ namespace LoungeApi
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
+            
         }
         public IConfiguration Configuration { get; }
 
@@ -28,6 +29,7 @@ namespace LoungeApi
             string connection = Configuration.GetConnectionString("DefaultConnection");
             services.AddDbContext<LoungeContext>(options => options.UseSqlServer(connection));
             services.AddControllers();
+            
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

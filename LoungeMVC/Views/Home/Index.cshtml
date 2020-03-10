@@ -10,11 +10,12 @@
             foreach (var tobacco in Model) {
 
             <div class="col lg-4">
-                <img width="200" class="img-thumbnail" src="@tobacco.Image" alt="@tobacco.Name"/>
-                 <h2>@tobacco.Name</h2>
+                <img width="200" class="img-thumbnail" src="@tobacco.Image" alt="@tobacco.Name" />
+                <h2>@tobacco.Name</h2>
                 <p>@tobacco.Description</p>
-                <p><a class="btn btn-warning">Детальніше</a></p>
-                </div>
+                <p><a class="btn btn-warning" href="~/Home/Edit/@tobacco.Id">Детальніше</a></p>
+                <p><a class="btn btn-danger" href="~/Home/DeleteTobacco/@tobacco.Id">Видалити</a></p>
+            </div>
             }
         }
 
@@ -22,7 +23,7 @@
 <form method="post" action="~/Home/Index">
     <p>
         <label>Ім'я</label><br />
-        <input type="text" name="name" />
+        <input type="text"  name="name" />
     </p>
     <p>
         <label>Зображення</label><br />
