@@ -1,9 +1,9 @@
 ﻿using LoungeApi.Models;
-using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
 
 namespace LoungeApi.Services
 {
@@ -13,7 +13,7 @@ namespace LoungeApi.Services
         public DbSet<Order> Orders { get; set; }
         public LoungeContext(DbContextOptions<LoungeContext> options)
             : base(options)
-        {
+        {                     
             Database.EnsureCreated();
         }
     }

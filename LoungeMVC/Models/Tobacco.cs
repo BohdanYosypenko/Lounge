@@ -13,5 +13,8 @@ namespace LoungeMVC.Models
         public string Taste { get; set; }
         public int Weight { get; set; }
         public string Description { get; set; }
+
+        public int? OrderId { get; set; }
+        public Order Order { get; set; }
     }
 }

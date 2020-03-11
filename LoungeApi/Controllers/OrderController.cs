@@ -19,7 +19,7 @@ namespace LoungeApi.Controllers
             db = context;
             if (!db.Orders.Any())
             {
-                db.Orders.Add(new Order { User = "Петро Курець", Address = "NewAdress", ContactPhone = "newPhone",TobaccoId=1 });
+                db.Orders.Add(new Order { User = "Петро Курець", Address = "NewAdress", ContactPhone = "newPhone"});
                 db.SaveChanges();
             }
         }

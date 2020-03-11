@@ -72,7 +72,7 @@ namespace LoungeMVC.Client
         }
         
 
-        public void Post(string apiName, T responceApi)
+        public T Post(string apiName, T responceApi)
         {
             using (HttpClient client = new HttpClient())
             {
@@ -83,8 +83,23 @@ namespace LoungeMVC.Client
                 postTask.Wait();
 
                 var result = postTask.Result;
+                if (result.IsSuccessStatusCode)
+                {
+
+                    var readTask = result.Content.ReadAsAsync<T>();
+                    readTask.Wait();
+
+                    var apiResult = readTask.Result;
+
+                    return apiResult;
+                }
+                
             }
+            return default;
         }
+
+
+
         public void Put(string apiName, T responceApi)
         {
             using (HttpClient client = new HttpClient())

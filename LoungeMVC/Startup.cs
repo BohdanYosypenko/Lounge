@@ -18,7 +18,7 @@ namespace LoungeMVC
             Configuration = configuration;
             string hostConnection = Configuration["ConnectionStrings:HostConnection"];
             
-        }
+        } 
 
         public IConfiguration Configuration { get; }
 

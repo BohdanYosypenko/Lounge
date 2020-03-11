@@ -1,0 +1,15 @@
+﻿@model Order
+@{
+    ViewData["Title"] = "Buy";
+}
+@Model.Id
+@{
+    foreach (var tobaco in @Model.Tobaccos)
+    {
+<p>
+    @tobaco.Name
+</p>
+        }
+    }
+<h1>Buy</h1>
+
