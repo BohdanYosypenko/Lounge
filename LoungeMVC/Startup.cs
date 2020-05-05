@@ -2,6 +2,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using LoungeMVC.Client;
+using LoungeMVC.Interfaces;
+using LoungeMVC.Models;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -17,7 +20,8 @@ namespace LoungeMVC
         {
             Configuration = configuration;
             string hostConnection = Configuration["ConnectionStrings:HostConnection"];
-            
+            WebApiClient<Tobacco>.SetConnectionString(hostConnection);
+            WebApiClient<Order>.SetConnectionString(hostConnection);
         } 
 
         public IConfiguration Configuration { get; }
@@ -26,6 +30,12 @@ namespace LoungeMVC
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
+
+            // servis don't work :(
+            // services.AddTransient<IGetAllTobacco, AllTobaccos>(); 
+            
+            services.AddTransient<ISender, SendKiss>();
+            
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

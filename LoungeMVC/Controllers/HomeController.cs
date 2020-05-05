@@ -8,18 +8,24 @@ using Microsoft.Extensions.Logging;
 using LoungeMVC.Models;
 using LoungeMVC.Client;
 using Microsoft.Extensions.Configuration;
+using LoungeMVC.Interfaces;
 
 namespace LoungeMVC.Controllers
 {
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
-        private WebApiClient<Tobacco> tobaccoApiClient = WebApiClient<Tobacco>.GetInstance("https://localhost:44382/");
-        private WebApiClient<Order> orderApiClient = WebApiClient<Order>.GetInstance("https://localhost:44382/");
+        private WebApiClient<Tobacco> tobaccoApiClient = WebApiClient<Tobacco>.GetInstance();
+        private WebApiClient<Order> orderApiClient = WebApiClient<Order>.GetInstance();
         List<Tobacco> tobaccoList = new List<Tobacco>();
+        //private readonly IGetAllTobacco _allTobacco;
+        private readonly ISender _sender;
 
-        public HomeController(ILogger<HomeController> logger)
+
+
+        public HomeController(ILogger<HomeController> logger, ISender sender)
         {
+            _sender = sender;
             _logger = logger;
         }
 
@@ -39,51 +45,12 @@ namespace LoungeMVC.Controllers
             tobaccoApiClient.Post("tobacco", tobacco);
             return View(tobaccoApiClient.Get("tobacco"));
         }
-        // Edit
+        // Detail
 
-        [HttpGet]
-        public IActionResult Edit(int id)
+        public IActionResult Detail( int id)
         {
-               
             return View(tobaccoApiClient.Get("tobacco",id));
         }
-
-        [HttpPost]
-        public IActionResult Edit(int id,string name, string image, string taste, int weight, string description)
-        {
-
-            Tobacco tobacco = new Tobacco {Id=id, Name = name, Image = image, Taste = taste, Weight = weight, Description = description };
-
-            tobaccoApiClient.Put("tobacco", tobacco);
-            return Redirect("Index");
-        }
-
-        // Create
-
-        [HttpGet]
-        public IActionResult Create()
-        {
-            return View();
-        }
-
-        [HttpPost]
-        public IActionResult Create( string name, string image, string taste, int weight, string description)
-        {
-
-            Tobacco tobacco = new Tobacco { Name = name, Image = image, Taste = taste, Weight = weight, Description = description };
-
-            tobaccoApiClient.Post("tobacco", tobacco);
-            return Redirect("Index");
-        }
-
-        // Delete
-
-        public IActionResult DeleteTobacco(int id)
-        {
-            tobaccoApiClient.Delete("tobacco", id);
-;            return Redirect("~/Home/Index");
-        }
-
         // Buy Not Compleate
 
         [HttpGet]
@@ -119,9 +86,6 @@ namespace LoungeMVC.Controllers
         [HttpPost]
         public IActionResult Buy(string name, string image, string taste, int weight, string description)
         {
-
-            
-           
             return Redirect("Index");
         }
 

@@ -3,22 +3,92 @@
     ViewData["Title"] = "Home Page";
 }
 
-<div class="row mt-5 mb-2">
-    
-
-        @{ 
-            foreach (var tobacco in Model) {
-
-            <div id="block">
-                <img class="img-thumbnail" src="@tobacco.Image" alt="@tobacco.Name" />
-                <h2>@tobacco.Name</h2>
-                <p>@tobacco.Description</p>
-                <a class="btn btn-warning" href="~/Home/Edit/@tobacco.Id">Детальніше</a>
-                <a class="btn_btn_danger" href="~/Home/DeleteTobacco/@tobacco.Id">Видалити</a>
-                <a class="btn btn-danger" href="~/Home/Buy/@tobacco.Id">Купити</a>
+<div class="page">
+    <div class="container">
+        <div class="preference">
+            <div class="preference_item">
+                <div class="preference_inner">
+                    <div class="preference_img">
+                        <img src="~/img/preference/time.png" alt="" />
+                    </div>
+                    <div class="preference_text">
+                        Lorem ipsum dolor sit
+                        amet, consectetur
+                        adipiscing elit.
+                    </div>
+                </div>
             </div>
-            }
-        }
+            <div class="preference_item">
+                <div class="preference_inner">
+                    <div class="preference_img">
+                        <img src="~/img/preference/time.png" alt="" />
+                    </div>
+                    <div class="preference_text">
+                        Lorem ipsum dolor sit
+                        amet, consectetur
+                        adipiscing elit.
+                    </div>
+                </div>
+            </div>
+            <div class="preference_item">
+                <div class="preference_inner">
+                    <div class="preference_img">
+                        <img src="~/img/preference/time.png" alt="" />
+                    </div>
+                    <div class="preference_text">
+                        Lorem ipsum dolor sit
+                        amet, consectetur
+                        adipiscing elit.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="slider">
+        <div data-slider>
+            <div>
+                <div class="slider_item">
+                    <img class="slider_img" src="~/img/slider/1.jpg" alt="" />
+                </div>
+            </div>
+            <div>
+                <div class="slider_item">
+                    <img class="slider_img" src="~/img/slider/2.jpg" alt="" />
+                </div>
+            </div>
+        </div>
+    </div>
 
+
+
+
+
+    <div class="container">
+        <div class="article">
+            @{
+                foreach (var tobacco in Model)
+                {
+
+                    <div class="article_item">
+                        <a href="~/Home/Detail/@tobacco.Id">
+                            <div class="article_inner">
+
+                                <img class="article_img" src="@tobacco.Image" alt="@tobacco.Name" />
+
+                                <div class="article_info">
+                                    <div class="article_title">@tobacco.Name</div>
+                                    <div class="article_weight">@tobacco.Weight</div>
+                                    <div class="article_info">@tobacco.Description</div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+
+                }
+            }
+
+
+        </div>
+    </div>
 </div>
 

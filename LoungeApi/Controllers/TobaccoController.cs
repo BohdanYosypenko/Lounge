@@ -20,7 +20,7 @@ namespace LoungeApi.Controllers
             db = context;
             if (!db.Tobaccos.Any())
             {
-                db.Tobaccos.Add(new Tobacco { Name = "Tom", Taste = "26", Description = "das is good", Image = "https://previews.123rf.com/images/sergarck/sergarck1608/sergarck160800044/63290717-legs-of-beautiful-model-covered-with-short-preaty-skirt-isolated-on-white-background-.jpg", Weight = 23});
+                db.Tobaccos.Add(new Tobacco { Name = "Tom", Taste = "26", Description = "das is good", Image = @"https://tabaki.shop/content/images/16/kalyan-yahya-sy07-52435328452402.jpg", Weight = 23});
                 db.SaveChanges();
             }
         }

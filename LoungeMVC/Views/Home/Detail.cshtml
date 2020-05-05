@@ -1,0 +1,27 @@
+﻿@model LoungeMVC.Models.Tobacco
+@{
+    ViewData["Title"] = "Detail";
+}
+
+<h1>Detail</h1>
+<div class="page">
+    <div class="container">
+        <img class="article_img" src="@Model.Image" />
+        <div>
+            @Model.Name
+        </div>
+
+        <div>
+            @Model.Description
+        </div>
+
+        <div>
+            @Model.Weight
+        </div>
+
+        <div>
+            @Model.Taste
+        </div>
+
+    </div>
+</div>

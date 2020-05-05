@@ -11,7 +11,7 @@ namespace LoungeApi.Services
     {
         public DbSet<Tobacco> Tobaccos { get; set; }
         public DbSet<Order> Orders { get; set; }
-        public LoungeContext(DbContextOptions<LoungeContext> options)
+        public LoungeContext(DbContextOptions<LoungeContext> options)  
             : base(options)
         {                     
             Database.EnsureCreated();

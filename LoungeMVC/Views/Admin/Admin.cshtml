@@ -1,0 +1,36 @@
+﻿@model IEnumerable<LoungeMVC.Models.Tobacco>
+@{
+    ViewData["Title"] = "Buy";
+}
+<div class="page">
+    <div class="container">
+        <h1>Увесь товар</h1>
+        <a href="~/Admin/Create">Створити продукт</a>
+        <div class="admin_article">
+            <div class="admin_article_item">
+                <div class="admin_article_inner">
+                    <div class="admin_article_id">Id</div>
+                    <div class="admin_article_name">Name</div>
+                    <div class="admin_article_weight">Weight</div>
+
+                </div>
+            </div>
+            @{
+                foreach (var tobacco in Model)
+                {
+                    <div class="admin_article_item">
+                        <div class="admin_article_inner">
+                            <div class="admin_article_id">@tobacco.Id</div>
+                            <div class="admin_article_name">@tobacco.Name</div>
+                            <div class="admin_article_weight">@tobacco.Weight</div>
+                            <a class="" href="~/Admin/Edit/@tobacco.Id">Редагувати</a>
+                            <a class="" href="~/Admin/DeleteTobacco/@tobacco.Id">Видалити</a>
+                            
+                        </div>
+                    </div>
+
+                }
+            }
+        </div>
+    </div>
+</div>

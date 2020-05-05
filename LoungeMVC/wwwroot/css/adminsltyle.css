@@ -1,0 +1,20 @@
+﻿.admin_article_inner {
+    display: flex;
+    flex-wrap:nowrap;
+
+}
+.admin_article_item{
+    border:1px solid black;
+    margin:10px auto;
+}
+
+.admin_article_id {
+    width: 10%;
+    margin-left:10px;
+}
+.admin_article_name{
+    width:40%;
+}
+.admin_article_weight{
+    width:30%;
+}

@@ -14,14 +14,18 @@ namespace LoungeMVC.Client
         private static string HttpString;
         private HttpClient client = new HttpClient();
 
-        public static WebApiClient<T> GetInstance(string httpString)
+        public static WebApiClient<T> GetInstance()
         {
-            HttpString = httpString;
+           
             if (instance == null)
             {
                 instance = new WebApiClient<T>();
             }
             return instance;
+        }
+        public static void SetConnectionString(string httpString)
+        {
+            HttpString = httpString;
         }
 
         public  IEnumerable<T> Get(string apiName)
