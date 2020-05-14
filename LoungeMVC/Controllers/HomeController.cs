@@ -57,8 +57,7 @@ namespace LoungeMVC.Controllers
         public string Buy(int id)
         {
             
-            //if (orderApiClient.Get("order").Contains((orderApiClient.Get("order").FirstOrDefault(x => x.Complete == false))))
-            //{
+          
                 Order order = (orderApiClient.Get("order").FirstOrDefault(x => x.Complete == false));
                 order.Tobaccos.Add(tobaccoApiClient.Get("tobacco", id));
                 
@@ -72,15 +71,7 @@ namespace LoungeMVC.Controllers
                 s += tobac.Name.ToString();
             }
             return s;
-            //}
-            //else
-            //{
-            //    order = new Order();
-            //    var newOrder= orderApiClient.Post("order", order);
-            //    newOrder.Tobaccos.Add(tobaccoApiClient.Get("tobacco", id));
-            //    return View(newOrder);
-            //}
-            //return View(order);
+
         }
 
         [HttpPost]

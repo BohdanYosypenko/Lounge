@@ -116,7 +116,7 @@ a {
 
 .preference_inner {
     background-color: #888;
-    padding: 20px 35px 25px 105px;
+    padding: 20px 35px 25px 125px;
 }
 
 .preference_img {
@@ -200,7 +200,7 @@ a {
 }
 
     .article_item:hover {
-        border: 3px #09abc2 solid;
+        border: 2px #09abc2 solid;
     }
 
 .article_inner {

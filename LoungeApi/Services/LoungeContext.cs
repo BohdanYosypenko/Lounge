@@ -13,7 +13,8 @@ namespace LoungeApi.Services
         public DbSet<Order> Orders { get; set; }
         public LoungeContext(DbContextOptions<LoungeContext> options)  
             : base(options)
-        {                     
+        {
+           
             Database.EnsureCreated();
         }
     }

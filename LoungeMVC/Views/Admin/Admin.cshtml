@@ -12,6 +12,7 @@
                     <div class="admin_article_id">Id</div>
                     <div class="admin_article_name">Name</div>
                     <div class="admin_article_weight">Weight</div>
+                    <div class="admin_article_price">Price</div>
 
                 </div>
             </div>
@@ -23,9 +24,10 @@
                             <div class="admin_article_id">@tobacco.Id</div>
                             <div class="admin_article_name">@tobacco.Name</div>
                             <div class="admin_article_weight">@tobacco.Weight</div>
-                            <a class="" href="~/Admin/Edit/@tobacco.Id">Редагувати</a>
-                            <a class="" href="~/Admin/DeleteTobacco/@tobacco.Id">Видалити</a>
-                            
+                            <div class="admin_article_price">@tobacco.Price</div>
+                            <a class="controls" href="~/Admin/Edit/@tobacco.Id">Редагувати</a>
+                            <a class="controls" href="~/Admin/DeleteTobacco/@tobacco.Id">Видалити</a>
+
                         </div>
                     </div>
 

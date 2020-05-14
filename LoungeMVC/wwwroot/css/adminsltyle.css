@@ -1,6 +1,7 @@
 ﻿.admin_article_inner {
     display: flex;
     flex-wrap:nowrap;
+    
 
 }
 .admin_article_item{
@@ -16,5 +17,11 @@
     width:40%;
 }
 .admin_article_weight{
-    width:30%;
+    width:10%;
+}
+.admin_article_price {
+    width: 10%;
+}
+.controls{
+    margin-right:10px;
 }

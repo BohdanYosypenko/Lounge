@@ -25,10 +25,10 @@ namespace LoungeMVC.Controllers
         }
 
         [HttpPost]
-        public IActionResult Edit(int id, string name, string image, string taste, int weight, string description)
+        public IActionResult Edit(int id, string name, string image, string taste, int weight, int price, string description)
         {
 
-            Tobacco tobacco = new Tobacco { Id = id, Name = name, Image = image, Taste = taste, Weight = weight, Description = description };
+            Tobacco tobacco = new Tobacco { Id = id, Name = name, Image = image, Taste = taste, Weight = weight, Price = price, Description = description };
 
             tobaccoApiClient.Put("tobacco", tobacco);
             return Redirect("Admin");
@@ -43,16 +43,17 @@ namespace LoungeMVC.Controllers
         }
 
         [HttpPost]
-        public IActionResult Create(string name, string image, string taste, int weight, string description)
+        public IActionResult Create(string name, string image, string taste, int weight ,int price, string description)
         {
 
-            Tobacco tobacco = new Tobacco { Name = name, Image = image, Taste = taste, Weight = weight, Description = description };
+            Tobacco tobacco = new Tobacco { Name = name, Image = image, Taste = taste, Weight = weight, Price = price, Description = description };
 
             tobaccoApiClient.Post("tobacco", tobacco);
             return Redirect("Index");
         }
 
         // Delete
+
 
         public IActionResult DeleteTobacco(int id)
         {
